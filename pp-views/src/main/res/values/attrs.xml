@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="pd_width" format="float" />
+    <attr name="pd_widthLong" format="float" />
+    <attr name="pd_height" format="float" />
+    <attr name="pd_heightLong" format="float" />
+    <attr name="pd_marginTop" format="float" />
+    <attr name="pd_marginTopLong" format="float" />
+    <attr name="pd_marginBottom" format="float" />
+    <attr name="pd_marginBottomLong" format="float" />
+    <attr name="pd_marginStart" format="float" />
+    <attr name="pd_marginEnd" format="float" />
+    <attr name="pd_minWidth" format="float" />
+    <attr name="pd_paddingTop" format="float" />
+    <attr name="pd_paddingTopLong" format="float" />
+    <attr name="pd_paddingBottom" format="float" />
+    <attr name="pd_paddingBottomLong" format="float" />
+    <attr name="pd_paddingStart" format="float" />
+    <attr name="pd_paddingEnd" format="float" />
+    <attr name="pd_padding" format="float" />
+    <attr name="pd_textSize" format="float" />
+    <attr name="pd_textSizeLong" format="float" />
+    <attr name="pd_minTextSize" format="float"/>
+    <attr name="pd_minTextSizeLong" format="float"/>
+
+    <declare-styleable name="PDPercentSizes">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_textSize" />
+        <attr name="pd_textSizeLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+        <attr name="pd_padding" />
+        <attr name="pd_paddingTop" />
+        <attr name="pd_paddingTopLong" />
+        <attr name="pd_paddingBottom" />
+        <attr name="pd_paddingBottomLong" />
+        <attr name="pd_paddingStart" />
+        <attr name="pd_paddingEnd" />
+    </declare-styleable>
+
+    <declare-styleable name="PDAutoFitTextView">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_minTextSize" />
+        <attr name="pd_minTextSizeLong" />
+        <attr name="pd_textSize" />
+        <attr name="pd_textSizeLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
+
+    <declare-styleable name="PDConstraintLayout">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
+
+    <declare-styleable name="PDView">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
+
+    <declare-styleable name="PDTextView">
+        <attr name="pd_width" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_textSize" />
+        <attr name="pd_textSizeLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
+
+    <declare-styleable name="PDImageView">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
+
+    <declare-styleable name="PDCircleProgressView">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
+    <declare-styleable name="PDButtonWithImage">
+        <attr name="PDButtonWithImage_imagePosition">
+            <flag name="start" value="1" />
+            <flag name="end" value="1" />
+        </attr>
+        <attr name="PDButtonWithImage_imageMargin" format="float" />
+        <attr name="PDButtonWithImage_imageSize" format="float" />
+        <attr name="PDButtonWithImage_drawable" format="reference" />
+        <attr name="PDButtonWithImage_font" format="string" />
+        <attr name="PDButtonWithImage_text_color" format="reference" />
+        <attr name="PDButtonWithImage_textSize" format="float" />
+        <attr name="PDButtonWithImage_textSizeLong" format="float" />
+        <attr name="PDButtonWithImage_textAllCaps" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="PDSeekBar">
+        <attr name="pd_width" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
+    <declare-styleable name="PDMaterialButton">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_textSize" />
+        <attr name="pd_textSizeLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+        <attr name="pd_minWidth" />
+        <attr name="disabled_color" format="reference" />
+        <attr name="enabled_color" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="PDSquareImageView">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
+    <declare-styleable name="PDSquareLottieView">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
+    <declare-styleable name="PDLottieView">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
+    <declare-styleable name="PDViewPager">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
+    <declare-styleable name="PDAppBarLayout">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
+    <declare-styleable name="PDHorizontalScrollView">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
+    <declare-styleable name="PDSwipeRefreshLayout">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
+    <declare-styleable name="PDFrameLayout">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
+</resources>

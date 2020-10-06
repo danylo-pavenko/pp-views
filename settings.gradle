@@ -1,0 +1,2 @@
+include ':pp-views'
+rootProject.name = "Perfect Design"
