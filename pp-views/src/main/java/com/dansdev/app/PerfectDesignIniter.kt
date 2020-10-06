@@ -20,15 +20,16 @@ object PerfectDesignIniter {
     fun onStart(activity: AppCompatActivity) {
         val oldParams = PDSizeStorage.instance.screenParams
         val params = ScreenParams(
-            activity.screenParamsHeight(),
+            if (oldParams.screenHeight == 0) activity.screenParamsHeight() else oldParams.screenHeight,
             activity.screenSize().width,
             activity.isLong(),
-            false,
-            activity.screenParamsNavigationBarHeight(),
+            activity.hasCutout(),
+            if (oldParams.navigationHeight == 0) activity.screenParamsNavigationBarHeight() else oldParams.navigationHeight,
             activity.toolBarHeight(),
-            activity.screenParamsStatusBarHeight(),
+            if (oldParams.statusBarHeight == 0) activity.screenParamsStatusBarHeight() else oldParams.statusBarHeight,
             oldParams.keyboardHeight
         )
+        PDSizeStorage.instance.screenParams = params
     }
 
     fun onOpenKeyboard(height: Int) {
