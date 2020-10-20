@@ -19,7 +19,7 @@ import com.livinglifetechway.k4kotlin.core.show
 private const val IMAGE_POSITION_START = 1
 private const val IMAGE_POSITION_END = 2
 
-class PDButtonWithImage @JvmOverloads constructor(
+open class PDButtonWithImage @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : PDConstraintLayout(context, attrs, defStyleAttr) {
 

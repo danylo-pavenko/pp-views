@@ -10,7 +10,7 @@ import com.dansdev.app.R
 import com.dansdev.app.util.PercentSizeManager
 import com.dansdev.app.storage.PDSizeStorage
 
-class PDCardView : CardView {
+open class PDCardView : CardView {
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)

@@ -10,7 +10,7 @@ import com.dansdev.app.storage.PDSizeStorage
 import com.dansdev.app.util.PercentSizeManager
 import com.google.android.material.appbar.AppBarLayout
 
-class PDAppBarLayout : AppBarLayout {
+open class PDAppBarLayout : AppBarLayout {
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {

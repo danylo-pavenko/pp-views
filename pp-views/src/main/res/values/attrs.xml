@@ -115,6 +115,35 @@
         <attr name="pd_marginEnd" />
     </declare-styleable>
 
+    <declare-styleable name="PDButton">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_textSize" />
+        <attr name="pd_textSizeLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
+
+    <declare-styleable name="PDEditText">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_textSize" />
+        <attr name="pd_textSizeLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+    </declare-styleable>
     <declare-styleable name="PDCircleProgressView">
         <attr name="pd_width" />
         <attr name="pd_widthLong" />

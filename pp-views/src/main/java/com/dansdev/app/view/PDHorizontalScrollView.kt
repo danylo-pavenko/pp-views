@@ -10,7 +10,7 @@ import com.dansdev.app.R
 import com.dansdev.app.util.PercentSizeManager
 import com.dansdev.app.storage.PDSizeStorage
 
-class PDHorizontalScrollView : HorizontalScrollView {
+open class PDHorizontalScrollView : HorizontalScrollView {
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {

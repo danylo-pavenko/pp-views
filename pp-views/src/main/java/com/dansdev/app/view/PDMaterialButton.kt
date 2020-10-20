@@ -17,7 +17,7 @@ import com.dansdev.app.util.PercentSizeManager
 import com.dansdev.app.storage.PDSizeStorage
 import com.dansdev.app.util.setBackTint
 
-class PDMaterialButton : MaterialButton {
+open class PDMaterialButton : MaterialButton {
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
