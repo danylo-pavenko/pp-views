@@ -11,6 +11,7 @@ import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import androidx.core.view.marginBottom
 import androidx.core.view.marginTop
+import androidx.core.view.updateLayoutParams
 import com.google.android.material.button.MaterialButton
 import com.dansdev.app.R
 import com.dansdev.app.util.PercentSizeManager
@@ -41,6 +42,10 @@ open class PDMaterialButton : MaterialButton {
     private var percentWidth = 0
     private var disabledColor = 0
     private var enabledColor = 0
+    private var percentPaddingStart = paddingStart
+    private var percentPaddingEnd = paddingEnd
+    private var percentPaddingTop = paddingTop
+    private var percentPaddingBottom = paddingBottom
 
     override fun isEnabled(): Boolean {
         if (super.isEnabled() && (enabledColor != 0 || disabledColor != 0)) {
@@ -104,6 +109,17 @@ open class PDMaterialButton : MaterialButton {
                 ta.getFloat(R.styleable.PDMaterialButton_pd_heightLong, 0f)
             )
 
+            percentPaddingStart = sizeManager.width(ta.getFloat(R.styleable.PDMaterialButton_pd_paddingStart, paddingStart.toFloat()))
+            percentPaddingEnd = sizeManager.width(ta.getFloat(R.styleable.PDMaterialButton_pd_paddingEnd, paddingEnd.toFloat()))
+            percentPaddingTop = sizeManager.height(
+                ta.getFloat(R.styleable.PDMaterialButton_pd_paddingTop, paddingTop.toFloat()),
+                ta.getFloat(R.styleable.PDMaterialButton_pd_paddingTopLong, paddingTop.toFloat())
+            )
+            percentPaddingBottom = sizeManager.height(
+                ta.getFloat(R.styleable.PDMaterialButton_pd_paddingBottom, paddingBottom.toFloat()),
+                ta.getFloat(R.styleable.PDMaterialButton_pd_paddingBottomLong, paddingBottom.toFloat())
+            )
+
             setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize)
 
             ta.recycle()
@@ -113,7 +129,7 @@ open class PDMaterialButton : MaterialButton {
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         if (isInEditMode) return
-        (layoutParams as? ViewGroup.MarginLayoutParams)?.apply {
+        updateLayoutParams<ViewGroup.MarginLayoutParams> {
             if (percentHeight != 0) height = percentHeight
             if (percentWidth != 0) width = percentWidth
             if (percentMinWidth != 0) minWidth = percentMinWidth
@@ -122,6 +138,12 @@ open class PDMaterialButton : MaterialButton {
                 if (percentMarginTop != 0) percentMarginTop else marginTop,
                 if (percentMarginEnd != 0) percentMarginEnd else marginEnd,
                 if (percentMarginBottom != 0) percentMarginBottom else marginBottom
+            )
+            setPadding(
+                if (percentPaddingStart != 0) percentPaddingStart else paddingStart,
+                if (percentPaddingTop != 0) percentPaddingTop else paddingTop,
+                if (percentPaddingEnd != 0) percentPaddingEnd else paddingEnd,
+                if (percentPaddingBottom != 0) percentPaddingBottom else paddingBottom
             )
         }
 

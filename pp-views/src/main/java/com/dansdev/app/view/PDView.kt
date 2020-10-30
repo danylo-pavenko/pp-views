@@ -27,6 +27,10 @@ open class PDView : View {
     private var percentMarginEnd = 0
     private var percentHeight = 0
     private var percentWidth = 0
+    private var percentPaddingStart = paddingStart
+    private var percentPaddingEnd = paddingEnd
+    private var percentPaddingTop = paddingTop
+    private var percentPaddingBottom = paddingBottom
 
     private fun initSizes(attrs: AttributeSet?) {
         if (isInEditMode) return
@@ -56,6 +60,17 @@ open class PDView : View {
             percentMarginStart = sizeManager.width(ta.getFloat(R.styleable.PDView_pd_marginStart, 0f))
             percentMarginEnd = sizeManager.width(ta.getFloat(R.styleable.PDView_pd_marginEnd, 0f))
 
+            percentPaddingStart = sizeManager.width(ta.getFloat(R.styleable.PDView_pd_paddingStart, paddingStart.toFloat()))
+            percentPaddingEnd = sizeManager.width(ta.getFloat(R.styleable.PDView_pd_paddingEnd, paddingEnd.toFloat()))
+            percentPaddingTop = sizeManager.height(
+                ta.getFloat(R.styleable.PDView_pd_paddingTop, paddingTop.toFloat()),
+                ta.getFloat(R.styleable.PDView_pd_paddingTopLong, paddingTop.toFloat())
+            )
+            percentPaddingBottom = sizeManager.height(
+                ta.getFloat(R.styleable.PDView_pd_paddingBottom, paddingBottom.toFloat()),
+                ta.getFloat(R.styleable.PDView_pd_paddingBottomLong, paddingBottom.toFloat())
+            )
+
             ta.recycle()
         }
     }
@@ -63,7 +78,7 @@ open class PDView : View {
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         if (isInEditMode) return
-        (layoutParams as? ViewGroup.MarginLayoutParams)?.apply {
+        updateLayoutParams<ViewGroup.MarginLayoutParams> {
             if (percentHeight != 0) height = percentHeight
             if (percentWidth != 0) width = percentWidth
             setMargins(
@@ -71,6 +86,12 @@ open class PDView : View {
                 if (percentMarginTop != 0) percentMarginTop else marginTop,
                 if (percentMarginEnd != 0) percentMarginEnd else marginEnd,
                 if (percentMarginBottom != 0) percentMarginBottom else marginBottom
+            )
+            setPadding(
+                if (percentPaddingStart != 0) percentPaddingStart else paddingStart,
+                if (percentPaddingTop != 0) percentPaddingTop else paddingTop,
+                if (percentPaddingEnd != 0) percentPaddingEnd else paddingEnd,
+                if (percentPaddingBottom != 0) percentPaddingBottom else paddingBottom
             )
         }
 

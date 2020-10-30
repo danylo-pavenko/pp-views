@@ -17,7 +17,6 @@
     <attr name="pd_paddingBottomLong" format="float" />
     <attr name="pd_paddingStart" format="float" />
     <attr name="pd_paddingEnd" format="float" />
-    <attr name="pd_padding" format="float" />
     <attr name="pd_textSize" format="float" />
     <attr name="pd_textSizeLong" format="float" />
     <attr name="pd_minTextSize" format="float"/>
@@ -36,7 +35,6 @@
         <attr name="pd_marginBottomLong" />
         <attr name="pd_marginStart" />
         <attr name="pd_marginEnd" />
-        <attr name="pd_padding" />
         <attr name="pd_paddingTop" />
         <attr name="pd_paddingTopLong" />
         <attr name="pd_paddingBottom" />
@@ -60,6 +58,12 @@
         <attr name="pd_marginBottomLong" />
         <attr name="pd_marginStart" />
         <attr name="pd_marginEnd" />
+        <attr name="pd_paddingTop" />
+        <attr name="pd_paddingTopLong" />
+        <attr name="pd_paddingBottom" />
+        <attr name="pd_paddingBottomLong" />
+        <attr name="pd_paddingStart" />
+        <attr name="pd_paddingEnd" />
     </declare-styleable>
 
     <declare-styleable name="PDConstraintLayout">
@@ -73,6 +77,12 @@
         <attr name="pd_marginBottomLong" />
         <attr name="pd_marginStart" />
         <attr name="pd_marginEnd" />
+        <attr name="pd_paddingTop" />
+        <attr name="pd_paddingTopLong" />
+        <attr name="pd_paddingBottom" />
+        <attr name="pd_paddingBottomLong" />
+        <attr name="pd_paddingStart" />
+        <attr name="pd_paddingEnd" />
     </declare-styleable>
 
     <declare-styleable name="PDView">
@@ -86,6 +96,12 @@
         <attr name="pd_marginBottomLong" />
         <attr name="pd_marginStart" />
         <attr name="pd_marginEnd" />
+        <attr name="pd_paddingTop" />
+        <attr name="pd_paddingTopLong" />
+        <attr name="pd_paddingBottom" />
+        <attr name="pd_paddingBottomLong" />
+        <attr name="pd_paddingStart" />
+        <attr name="pd_paddingEnd" />
     </declare-styleable>
 
     <declare-styleable name="PDTextView">
@@ -100,6 +116,12 @@
         <attr name="pd_marginBottomLong" />
         <attr name="pd_marginStart" />
         <attr name="pd_marginEnd" />
+        <attr name="pd_paddingTop" />
+        <attr name="pd_paddingTopLong" />
+        <attr name="pd_paddingBottom" />
+        <attr name="pd_paddingBottomLong" />
+        <attr name="pd_paddingStart" />
+        <attr name="pd_paddingEnd" />
     </declare-styleable>
 
     <declare-styleable name="PDImageView">
@@ -113,6 +135,12 @@
         <attr name="pd_marginBottomLong" />
         <attr name="pd_marginStart" />
         <attr name="pd_marginEnd" />
+        <attr name="pd_paddingTop" />
+        <attr name="pd_paddingTopLong" />
+        <attr name="pd_paddingBottom" />
+        <attr name="pd_paddingBottomLong" />
+        <attr name="pd_paddingStart" />
+        <attr name="pd_paddingEnd" />
     </declare-styleable>
 
     <declare-styleable name="PDButton">
@@ -128,6 +156,12 @@
         <attr name="pd_marginBottomLong" />
         <attr name="pd_marginStart" />
         <attr name="pd_marginEnd" />
+        <attr name="pd_paddingTop" />
+        <attr name="pd_paddingTopLong" />
+        <attr name="pd_paddingBottom" />
+        <attr name="pd_paddingBottomLong" />
+        <attr name="pd_paddingStart" />
+        <attr name="pd_paddingEnd" />
     </declare-styleable>
 
     <declare-styleable name="PDEditText">
@@ -143,6 +177,49 @@
         <attr name="pd_marginBottomLong" />
         <attr name="pd_marginStart" />
         <attr name="pd_marginEnd" />
+        <attr name="pd_paddingTop" />
+        <attr name="pd_paddingTopLong" />
+        <attr name="pd_paddingBottom" />
+        <attr name="pd_paddingBottomLong" />
+        <attr name="pd_paddingStart" />
+        <attr name="pd_paddingEnd" />
+    </declare-styleable>
+
+    <declare-styleable name="PDRecyclerView">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+        <attr name="pd_paddingTop" />
+        <attr name="pd_paddingTopLong" />
+        <attr name="pd_paddingBottom" />
+        <attr name="pd_paddingBottomLong" />
+        <attr name="pd_paddingStart" />
+        <attr name="pd_paddingEnd" />
+    </declare-styleable>
+    <declare-styleable name="PDViewGroup">
+        <attr name="pd_width" />
+        <attr name="pd_widthLong" />
+        <attr name="pd_height" />
+        <attr name="pd_heightLong" />
+        <attr name="pd_marginTop" />
+        <attr name="pd_marginTopLong" />
+        <attr name="pd_marginBottom" />
+        <attr name="pd_marginBottomLong" />
+        <attr name="pd_marginStart" />
+        <attr name="pd_marginEnd" />
+        <attr name="pd_paddingTop" />
+        <attr name="pd_paddingTopLong" />
+        <attr name="pd_paddingBottom" />
+        <attr name="pd_paddingBottomLong" />
+        <attr name="pd_paddingStart" />
+        <attr name="pd_paddingEnd" />
     </declare-styleable>
     <declare-styleable name="PDCircleProgressView">
         <attr name="pd_width" />
@@ -195,6 +272,12 @@
         <attr name="pd_marginStart" />
         <attr name="pd_marginEnd" />
         <attr name="pd_minWidth" />
+        <attr name="pd_paddingTop" />
+        <attr name="pd_paddingTopLong" />
+        <attr name="pd_paddingBottom" />
+        <attr name="pd_paddingBottomLong" />
+        <attr name="pd_paddingStart" />
+        <attr name="pd_paddingEnd" />
         <attr name="disabled_color" format="reference" />
         <attr name="enabled_color" format="reference" />
     </declare-styleable>
@@ -209,6 +292,12 @@
         <attr name="pd_marginBottomLong" />
         <attr name="pd_marginStart" />
         <attr name="pd_marginEnd" />
+        <attr name="pd_paddingTop" />
+        <attr name="pd_paddingTopLong" />
+        <attr name="pd_paddingBottom" />
+        <attr name="pd_paddingBottomLong" />
+        <attr name="pd_paddingStart" />
+        <attr name="pd_paddingEnd" />
     </declare-styleable>
     <declare-styleable name="PDSquareLottieView">
         <attr name="pd_width" />
