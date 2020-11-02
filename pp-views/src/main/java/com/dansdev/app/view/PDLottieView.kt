@@ -31,7 +31,10 @@ class PDLottieView : LottieAnimationView {
     private var percentMarginStart = 0
     private var percentMarginEnd = 0
     private var percentHeight = 0
-    private var percentPadding = 0
+    private var percentPaddingStart = paddingStart
+    private var percentPaddingEnd = paddingEnd
+    private var percentPaddingTop = paddingTop
+    private var percentPaddingBottom = paddingBottom
 
     @SuppressLint("CustomViewStyleable")
     private fun initSizes(attrs: AttributeSet?) {
@@ -59,9 +62,15 @@ class PDLottieView : LottieAnimationView {
                 ta.getFloat(R.styleable.PDLottieView_pd_marginBottomLong, 0f)
             )
 
-            percentPadding = sizeManager.height(
-                ta.getFloat(R.styleable.PDPercentSizes_pd_padding, 0f),
-                ta.getFloat(R.styleable.PDPercentSizes_pd_padding, 0f)
+            percentPaddingStart = sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_paddingStart, paddingStart.toFloat()))
+            percentPaddingEnd = sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_paddingEnd, paddingEnd.toFloat()))
+            percentPaddingTop = sizeManager.height(
+                ta.getFloat(R.styleable.PDPercentSizes_pd_paddingTop, paddingTop.toFloat()),
+                ta.getFloat(R.styleable.PDPercentSizes_pd_paddingTopLong, paddingTop.toFloat())
+            )
+            percentPaddingBottom = sizeManager.height(
+                ta.getFloat(R.styleable.PDPercentSizes_pd_paddingBottom, paddingBottom.toFloat()),
+                ta.getFloat(R.styleable.PDPercentSizes_pd_paddingBottomLong, paddingBottom.toFloat())
             )
             ta.recycle()
         }
@@ -81,9 +90,12 @@ class PDLottieView : LottieAnimationView {
                 if (percentMarginEnd != 0) percentMarginEnd else marginEnd,
                 if (percentMarginBottom != 0) percentMarginBottom else marginBottom
             )
-            if (percentPadding != 0) {
-                setPadding(0, percentPadding, percentPadding, 0)
-            }
+            setPadding(
+                if (percentPaddingStart != 0) percentPaddingStart else paddingStart,
+                if (percentPaddingTop != 0) percentPaddingTop else paddingTop,
+                if (percentPaddingEnd != 0) percentPaddingEnd else paddingEnd,
+                if (percentPaddingBottom != 0) percentPaddingBottom else paddingBottom
+            )
         }
 
         requestLayout()
