@@ -27,10 +27,10 @@ open class PDViewGroup : View {
     private var percentMarginEnd = 0
     private var percentHeight = 0
     private var percentWidth = 0
-    private var percentPaddingStart = paddingStart
-    private var percentPaddingEnd = paddingEnd
-    private var percentPaddingTop = paddingTop
-    private var percentPaddingBottom = paddingBottom
+    private var percentPaddingStart = 0
+    private var percentPaddingEnd = 0
+    private var percentPaddingTop = 0
+    private var percentPaddingBottom = 0
 
     private fun initSizes(attrs: AttributeSet?) {
         if (isInEditMode) return
@@ -59,16 +59,15 @@ open class PDViewGroup : View {
 
             percentMarginStart = sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_marginStart, 0f))
             percentMarginEnd = sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_marginEnd, 0f))
-
-            percentPaddingStart = sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_paddingStart, paddingStart.toFloat()))
-            percentPaddingEnd = sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_paddingEnd, paddingEnd.toFloat()))
+            percentPaddingStart = sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_paddingStart, 0f))
+            percentPaddingEnd = sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_paddingEnd, 0f))
             percentPaddingTop = sizeManager.height(
-                ta.getFloat(R.styleable.PDPercentSizes_pd_paddingTop, paddingTop.toFloat()),
-                ta.getFloat(R.styleable.PDPercentSizes_pd_paddingTopLong, paddingTop.toFloat())
+                ta.getFloat(R.styleable.PDPercentSizes_pd_paddingTop, 0f),
+                ta.getFloat(R.styleable.PDPercentSizes_pd_paddingTopLong, 0f)
             )
             percentPaddingBottom = sizeManager.height(
-                ta.getFloat(R.styleable.PDPercentSizes_pd_paddingBottom, paddingBottom.toFloat()),
-                ta.getFloat(R.styleable.PDPercentSizes_pd_paddingBottomLong, paddingBottom.toFloat())
+                ta.getFloat(R.styleable.PDPercentSizes_pd_paddingBottom, 0f),
+                ta.getFloat(R.styleable.PDPercentSizes_pd_paddingBottomLong, 0f)
             )
 
             ta.recycle()

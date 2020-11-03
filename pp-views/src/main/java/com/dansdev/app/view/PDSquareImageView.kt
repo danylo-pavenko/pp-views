@@ -36,10 +36,10 @@ class PDSquareImageView : AppCompatImageView {
     private var percentMarginStart = 0
     private var percentMarginEnd = 0
     private var percentHeight = 0
-    private var percentPaddingStart = paddingStart
-    private var percentPaddingEnd = paddingEnd
-    private var percentPaddingTop = paddingTop
-    private var percentPaddingBottom = paddingBottom
+    private var percentPaddingStart = 0
+    private var percentPaddingEnd = 0
+    private var percentPaddingTop = 0
+    private var percentPaddingBottom = 0
 
     @SuppressLint("CustomViewStyleable")
     private fun initSizes(attrs: AttributeSet?) {
@@ -67,15 +67,15 @@ class PDSquareImageView : AppCompatImageView {
                 ta.getFloat(R.styleable.PDSquareImageView_pd_marginBottomLong, 0f)
             )
 
-            percentPaddingStart = sizeManager.width(ta.getFloat(R.styleable.PDSquareImageView_pd_paddingStart, paddingStart.toFloat()))
-            percentPaddingEnd = sizeManager.width(ta.getFloat(R.styleable.PDSquareImageView_pd_paddingEnd, paddingEnd.toFloat()))
+            percentPaddingStart = sizeManager.width(ta.getFloat(R.styleable.PDSquareImageView_pd_paddingStart, 0f))
+            percentPaddingEnd = sizeManager.width(ta.getFloat(R.styleable.PDSquareImageView_pd_paddingEnd, 0f))
             percentPaddingTop = sizeManager.height(
-                ta.getFloat(R.styleable.PDSquareImageView_pd_paddingTop, paddingTop.toFloat()),
-                ta.getFloat(R.styleable.PDSquareImageView_pd_paddingTopLong, paddingTop.toFloat())
+                ta.getFloat(R.styleable.PDSquareImageView_pd_paddingTop, 0f),
+                ta.getFloat(R.styleable.PDSquareImageView_pd_paddingTopLong, 0f)
             )
             percentPaddingBottom = sizeManager.height(
-                ta.getFloat(R.styleable.PDSquareImageView_pd_paddingBottom, paddingBottom.toFloat()),
-                ta.getFloat(R.styleable.PDSquareImageView_pd_paddingBottomLong, paddingBottom.toFloat())
+                ta.getFloat(R.styleable.PDSquareImageView_pd_paddingBottom, 0f),
+                ta.getFloat(R.styleable.PDSquareImageView_pd_paddingBottomLong, 0f)
             )
 
             ta.recycle()
