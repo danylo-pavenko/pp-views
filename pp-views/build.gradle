@@ -13,15 +13,12 @@ android {
     defaultConfig {
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
-        versionCode 3
-        versionName "1.0.4"
+        versionCode 4
+        versionName "1.0.6"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
         vectorDrawables.useSupportLibrary = true
-    }
-    buildFeatures {
-        dataBinding true
     }
     buildTypes {
         release {
