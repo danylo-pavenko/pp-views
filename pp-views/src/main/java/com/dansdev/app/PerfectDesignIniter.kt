@@ -1,8 +1,8 @@
 package com.dansdev.app
 
+import android.app.Activity
 import android.app.Application
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import com.dansdev.app.storage.PDSizeStorage
 import com.dansdev.app.util.*
 
@@ -17,7 +17,7 @@ object PerfectDesignIniter {
         PDSizeStorage.init(application)
     }
 
-    fun onStart(activity: AppCompatActivity) {
+    fun onStart(activity: Activity) {
         val oldParams = PDSizeStorage.instance.screenParams
         val params = ScreenParams(
             if (oldParams.screenHeight == 0) activity.screenParamsHeight() else oldParams.screenHeight,
@@ -32,6 +32,9 @@ object PerfectDesignIniter {
         PDSizeStorage.instance.screenParams = params
     }
 
+    /**
+     * You can use utils from keyboard package of library
+     */
     fun onOpenKeyboard(height: Int) {
         if (height > 0) {
             val oldParams = PDSizeStorage.instance.screenParams

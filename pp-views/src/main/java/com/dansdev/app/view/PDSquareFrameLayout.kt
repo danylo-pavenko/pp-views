@@ -59,6 +59,7 @@ open class PDSquareFrameLayout : FrameLayout {
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
+        if (isInEditMode) return
         (layoutParams as? MarginLayoutParams)?.apply {
             if (percentHeight != 0) height = percentHeight
             if (percentWidth != 0) width = percentWidth

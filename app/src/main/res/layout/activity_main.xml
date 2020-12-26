@@ -17,4 +17,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:pd_textSize="26" />
 
+    <FrameLayout
+        android:id="@+id/fragments"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

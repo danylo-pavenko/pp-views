@@ -74,6 +74,7 @@ open class PDTextInputEditText : TextInputEditText {
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
+        if (isInEditMode) return
         updateLayoutParams<ViewGroup.MarginLayoutParams> {
             if (percentHeight != 0) height = percentHeight
             if (percentWidth != 0) width = percentWidth

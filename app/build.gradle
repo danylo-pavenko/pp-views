@@ -31,4 +31,5 @@ dependencies {
     implementation deps.material
     implementation deps.constraint_layout
     implementation project(path: ":pp-views")
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }

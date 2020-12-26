@@ -14,7 +14,7 @@ android {
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
         versionCode 6
-        versionName "1.0.8"
+        versionName "1.0.9"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
