@@ -5,10 +5,10 @@ import android.util.AttributeSet
 import android.view.ViewGroup
 import androidx.core.view.marginBottom
 import androidx.core.view.marginTop
-import androidx.core.view.updateLayoutParams
 import com.dansdev.app.R
 import com.dansdev.app.storage.PDSizeStorage
 import com.dansdev.app.util.PercentSizeManager
+import com.dansdev.app.util.updateLayoutParams
 import com.google.android.material.appbar.AppBarLayout
 
 open class PDAppBarLayout : AppBarLayout {
@@ -64,16 +64,21 @@ open class PDAppBarLayout : AppBarLayout {
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         if (isInEditMode) return
-        updateLayoutParams<MarginLayoutParams> {
-            if (percentHeight != 0) height = percentHeight
-            if (percentWidth != 0) width = percentWidth
-            setMargins(
-                if (percentMarginStart != 0) percentMarginStart else marginStart,
-                if (percentMarginTop != 0) percentMarginTop else marginTop,
-                if (percentMarginEnd != 0) percentMarginEnd else marginEnd,
-                if (percentMarginBottom != 0) percentMarginBottom else marginBottom
-            )
-        }
+        updateLayoutParams<MarginLayoutParams>(
+            defaultBlock = {
+                if (percentHeight != 0) height = percentHeight
+                if (width != ViewGroup.LayoutParams.MATCH_PARENT && percentWidth != 0) width =
+                    percentWidth
+            },
+            block = {
+                setMargins(
+                    if (percentMarginStart != 0) percentMarginStart else marginStart,
+                    if (percentMarginTop != 0) percentMarginTop else marginTop,
+                    if (percentMarginEnd != 0) percentMarginEnd else marginEnd,
+                    if (percentMarginBottom != 0) percentMarginBottom else marginBottom
+                )
+            }
+        )
         requestLayout()
     }
 }

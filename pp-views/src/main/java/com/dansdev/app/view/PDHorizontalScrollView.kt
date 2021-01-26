@@ -9,6 +9,7 @@ import androidx.core.view.marginTop
 import com.dansdev.app.R
 import com.dansdev.app.util.PercentSizeManager
 import com.dansdev.app.storage.PDSizeStorage
+import com.dansdev.app.util.updateLayoutParams
 
 open class PDHorizontalScrollView : HorizontalScrollView {
 
@@ -61,16 +62,20 @@ open class PDHorizontalScrollView : HorizontalScrollView {
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         if (isInEditMode) return
-        (layoutParams as? ViewGroup.MarginLayoutParams)?.apply {
-            if (percentHeight != 0) height = percentHeight
-            if (percentWidth != 0) width = percentWidth
-            setMargins(
-                if (percentMarginStart != 0) percentMarginStart else marginStart,
-                if (percentMarginTop != 0) percentMarginTop else marginTop,
-                if (percentMarginEnd != 0) percentMarginEnd else marginEnd,
-                if (percentMarginBottom != 0) percentMarginBottom else marginBottom
-            )
-        }
+        updateLayoutParams<MarginLayoutParams>(
+            defaultBlock = {
+                if (percentHeight != 0) height = percentHeight
+                if (width != ViewGroup.LayoutParams.MATCH_PARENT && percentWidth != 0) width = percentWidth
+            },
+            block = {
+                setMargins(
+                    if (percentMarginStart != 0) percentMarginStart else marginStart,
+                    if (percentMarginTop != 0) percentMarginTop else marginTop,
+                    if (percentMarginEnd != 0) percentMarginEnd else marginEnd,
+                    if (percentMarginBottom != 0) percentMarginBottom else marginBottom
+                )
+            }
+        )
 
         requestLayout()
     }

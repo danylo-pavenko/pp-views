@@ -6,11 +6,11 @@ import android.util.AttributeSet
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import androidx.core.view.marginBottom
 import androidx.core.view.marginTop
-import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.RecyclerView
 import com.dansdev.app.R
-import com.dansdev.app.util.PercentSizeManager
 import com.dansdev.app.storage.PDSizeStorage
+import com.dansdev.app.util.PercentSizeManager
+import com.dansdev.app.util.updateLayoutParams
 
 open class PDRecyclerView : RecyclerView {
 
@@ -75,21 +75,25 @@ open class PDRecyclerView : RecyclerView {
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         if (isInEditMode) return
-        updateLayoutParams<MarginLayoutParams> {
-            if (percentHeight != 0) height = percentHeight
-            if (width != MATCH_PARENT) if (percentWidth != 0) width = percentWidth
-            setMargins(
-                if (percentMarginStart != 0) percentMarginStart else marginStart,
-                if (percentMarginTop != 0) percentMarginTop else marginTop,
-                if (percentMarginEnd != 0) percentMarginEnd else marginEnd,
-                if (percentMarginBottom != 0) percentMarginBottom else marginBottom
-            )
-            setPadding(
-                if (percentPaddingStart != 0) percentPaddingStart else paddingStart,
-                if (percentPaddingTop != 0) percentPaddingTop else paddingTop,
-                if (percentPaddingEnd != 0) percentPaddingEnd else paddingEnd,
-                if (percentPaddingBottom != 0) percentPaddingBottom else paddingBottom
-            )
-        }
+        updateLayoutParams<MarginLayoutParams>(
+            defaultBlock = {
+                if (percentHeight != 0) height = percentHeight
+                if (width != MATCH_PARENT && percentWidth != 0) width = percentWidth
+                setPadding(
+                    if (percentPaddingStart != 0) percentPaddingStart else paddingStart,
+                    if (percentPaddingTop != 0) percentPaddingTop else paddingTop,
+                    if (percentPaddingEnd != 0) percentPaddingEnd else paddingEnd,
+                    if (percentPaddingBottom != 0) percentPaddingBottom else paddingBottom
+                )
+            },
+            block = {
+                setMargins(
+                    if (percentMarginStart != 0) percentMarginStart else marginStart,
+                    if (percentMarginTop != 0) percentMarginTop else marginTop,
+                    if (percentMarginEnd != 0) percentMarginEnd else marginEnd,
+                    if (percentMarginBottom != 0) percentMarginBottom else marginBottom
+                )
+            }
+        )
     }
 }

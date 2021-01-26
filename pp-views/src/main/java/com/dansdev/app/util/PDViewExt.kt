@@ -3,6 +3,7 @@ package com.dansdev.app.util
 import android.content.res.ColorStateList
 import android.graphics.PorterDuff
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
@@ -52,4 +53,16 @@ fun TextView.setCompoundDrawable(
     val drawableRight = if (iconRightId != 0) AppCompatResources.getDrawable(context, iconRightId) else null
     val drawableBottom = if (iconBottomId != 0) AppCompatResources.getDrawable(context, iconBottomId) else null
     this.setCompoundDrawablesWithIntrinsicBounds(drawableLeft, drawableTop, drawableRight, drawableBottom)
+}
+
+inline fun <reified T : ViewGroup.LayoutParams> View.updateLayoutParams(defaultBlock: ViewGroup.LayoutParams.() -> Unit, block: T.() -> Unit) {
+    val params = layoutParams
+    defaultBlock(params)
+    layoutParams = params
+
+    if (layoutParams is T) {
+        val params = layoutParams as T
+        block(params)
+        layoutParams = params
+    }
 }

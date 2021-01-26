@@ -13,12 +13,17 @@ import androidx.core.view.updateLayoutParams
 import com.dansdev.app.R
 import com.dansdev.app.util.PercentSizeManager
 import com.dansdev.app.storage.PDSizeStorage
+import com.dansdev.app.util.updateLayoutParams
 
 open class PDButton : AppCompatButton {
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         gravity = Gravity.CENTER
         initSizes(attrs)
     }
@@ -42,45 +47,49 @@ open class PDButton : AppCompatButton {
         attrs?.also {
             val ta = context.obtainStyledAttributes(attrs, R.styleable.PDPercentSizes)
             val textSize = sizeManager.height(
-                    ta.getFloat(R.styleable.PDPercentSizes_pd_textSize, 0f),
-                    ta.getFloat(R.styleable.PDPercentSizes_pd_textSizeLong, 0f)
+                ta.getFloat(R.styleable.PDPercentSizes_pd_textSize, 0f),
+                ta.getFloat(R.styleable.PDPercentSizes_pd_textSizeLong, 0f)
             ).toFloat()
 
             percentWidth = sizeManager.width(
-                    ta.getFloat(R.styleable.PDPercentSizes_pd_width, 0f)
+                ta.getFloat(R.styleable.PDPercentSizes_pd_width, 0f)
             )
 
             percentHeight = sizeManager.height(
-                    ta.getFloat(R.styleable.PDPercentSizes_pd_height, 0f),
-                    ta.getFloat(R.styleable.PDPercentSizes_pd_heightLong, 0f)
+                ta.getFloat(R.styleable.PDPercentSizes_pd_height, 0f),
+                ta.getFloat(R.styleable.PDPercentSizes_pd_heightLong, 0f)
             )
 
             percentMarginTop = sizeManager.height(
-                    ta.getFloat(R.styleable.PDPercentSizes_pd_marginTop, 0f),
-                    ta.getFloat(R.styleable.PDPercentSizes_pd_marginTopLong, 0f)
+                ta.getFloat(R.styleable.PDPercentSizes_pd_marginTop, 0f),
+                ta.getFloat(R.styleable.PDPercentSizes_pd_marginTopLong, 0f)
             )
 
             percentWidth = sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_width, 0f))
 
             percentHeight = sizeManager.height(
-                    ta.getFloat(R.styleable.PDPercentSizes_pd_height, 0f),
-                    ta.getFloat(R.styleable.PDPercentSizes_pd_heightLong, 0f)
+                ta.getFloat(R.styleable.PDPercentSizes_pd_height, 0f),
+                ta.getFloat(R.styleable.PDPercentSizes_pd_heightLong, 0f)
             )
 
             percentMarginBottom = sizeManager.height(
-                    ta.getFloat(R.styleable.PDPercentSizes_pd_marginBottom, 0f),
-                    ta.getFloat(R.styleable.PDPercentSizes_pd_marginBottomLong, 0f)
+                ta.getFloat(R.styleable.PDPercentSizes_pd_marginBottom, 0f),
+                ta.getFloat(R.styleable.PDPercentSizes_pd_marginBottomLong, 0f)
             )
 
-            percentMarginStart = sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_marginStart, 0f))
-            percentMarginEnd = sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_marginEnd, 0f))
+            percentMarginStart =
+                sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_marginStart, 0f))
+            percentMarginEnd =
+                sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_marginEnd, 0f))
 
             percentHeight = sizeManager.height(
-                    ta.getFloat(R.styleable.PDPercentSizes_pd_height, 0f),
-                    ta.getFloat(R.styleable.PDPercentSizes_pd_heightLong, 0f)
+                ta.getFloat(R.styleable.PDPercentSizes_pd_height, 0f),
+                ta.getFloat(R.styleable.PDPercentSizes_pd_heightLong, 0f)
             )
-            percentPaddingStart = sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_paddingStart, 0f))
-            percentPaddingEnd = sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_paddingEnd, 0f))
+            percentPaddingStart =
+                sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_paddingStart, 0f))
+            percentPaddingEnd =
+                sizeManager.width(ta.getFloat(R.styleable.PDPercentSizes_pd_paddingEnd, 0f))
             percentPaddingTop = sizeManager.height(
                 ta.getFloat(R.styleable.PDPercentSizes_pd_paddingTop, 0f),
                 ta.getFloat(R.styleable.PDPercentSizes_pd_paddingTopLong, 0f)
@@ -99,22 +108,27 @@ open class PDButton : AppCompatButton {
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         if (isInEditMode) return
-        updateLayoutParams<ViewGroup.MarginLayoutParams> {
-            if (percentHeight != 0) height = percentHeight
-            if (percentWidth != 0) width = percentWidth
-            setMargins(
-                if (percentMarginStart != 0) percentMarginStart else marginStart,
-                if (percentMarginTop != 0) percentMarginTop else marginTop,
-                if (percentMarginEnd != 0) percentMarginEnd else marginEnd,
-                if (percentMarginBottom != 0) percentMarginBottom else marginBottom
-            )
-            setPadding(
-                if (percentPaddingStart != 0) percentPaddingStart else paddingStart,
-                if (percentPaddingTop != 0) percentPaddingTop else paddingTop,
-                if (percentPaddingEnd != 0) percentPaddingEnd else paddingEnd,
-                if (percentPaddingBottom != 0) percentPaddingBottom else paddingBottom
-            )
-        }
+        updateLayoutParams<ViewGroup.MarginLayoutParams>(
+            defaultBlock = {
+                if (percentHeight != 0) height = percentHeight
+                if (width != ViewGroup.LayoutParams.MATCH_PARENT && percentWidth != 0) width =
+                    percentWidth
+                setPadding(
+                    if (percentPaddingStart != 0) percentPaddingStart else paddingStart,
+                    if (percentPaddingTop != 0) percentPaddingTop else paddingTop,
+                    if (percentPaddingEnd != 0) percentPaddingEnd else paddingEnd,
+                    if (percentPaddingBottom != 0) percentPaddingBottom else paddingBottom
+                )
+            },
+            block = {
+                setMargins(
+                    if (percentMarginStart != 0) percentMarginStart else marginStart,
+                    if (percentMarginTop != 0) percentMarginTop else marginTop,
+                    if (percentMarginEnd != 0) percentMarginEnd else marginEnd,
+                    if (percentMarginBottom != 0) percentMarginBottom else marginBottom
+                )
+            }
+        )
 
         requestLayout()
     }
