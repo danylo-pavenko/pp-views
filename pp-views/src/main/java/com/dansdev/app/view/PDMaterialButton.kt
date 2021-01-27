@@ -11,23 +11,20 @@ import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import androidx.core.view.marginBottom
 import androidx.core.view.marginTop
-import androidx.core.view.updateLayoutParams
-import com.google.android.material.button.MaterialButton
 import com.dansdev.app.R
-import com.dansdev.app.util.PercentSizeManager
 import com.dansdev.app.storage.PDSizeStorage
+import com.dansdev.app.util.PercentSizeManager
 import com.dansdev.app.util.setBackTint
 import com.dansdev.app.util.updateLayoutParams
+import com.google.android.material.button.MaterialButton
 
-open class PDMaterialButton : MaterialButton {
+open class PDMaterialButton @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyle: Int = 0
+) : MaterialButton(context, attrs, defStyle) {
 
-    constructor(context: Context) : this(context, null)
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    ) {
+    init {
         gravity = Gravity.CENTER
         initSizes(attrs)
     }
@@ -110,8 +107,10 @@ open class PDMaterialButton : MaterialButton {
                 ta.getFloat(R.styleable.PDMaterialButton_pd_heightLong, 0f)
             )
 
-            percentPaddingStart = sizeManager.width(ta.getFloat(R.styleable.PDMaterialButton_pd_paddingStart, 0f))
-            percentPaddingEnd = sizeManager.width(ta.getFloat(R.styleable.PDMaterialButton_pd_paddingEnd, 0f))
+            percentPaddingStart =
+                sizeManager.width(ta.getFloat(R.styleable.PDMaterialButton_pd_paddingStart, 0f))
+            percentPaddingEnd =
+                sizeManager.width(ta.getFloat(R.styleable.PDMaterialButton_pd_paddingEnd, 0f))
             percentPaddingTop = sizeManager.height(
                 ta.getFloat(R.styleable.PDMaterialButton_pd_paddingTop, 0f),
                 ta.getFloat(R.styleable.PDMaterialButton_pd_paddingTopLong, 0f)
@@ -133,7 +132,8 @@ open class PDMaterialButton : MaterialButton {
         updateLayoutParams<ViewGroup.MarginLayoutParams>(
             defaultBlock = {
                 if (percentHeight != 0) height = percentHeight
-                if (width != ViewGroup.LayoutParams.MATCH_PARENT && percentWidth != 0) width = percentWidth
+                if (width != ViewGroup.LayoutParams.MATCH_PARENT && percentWidth != 0) width =
+                    percentWidth
                 setPadding(
                     if (percentPaddingStart != 0) percentPaddingStart else paddingStart,
                     if (percentPaddingTop != 0) percentPaddingTop else paddingTop,
@@ -161,6 +161,7 @@ open class PDMaterialButton : MaterialButton {
 
     @SuppressLint("RestrictedApi")
     fun setTintResColor(@ColorRes colorResId: Int) {
-        supportBackgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(context, colorResId))
+        supportBackgroundTintList =
+            ColorStateList.valueOf(ContextCompat.getColor(context, colorResId))
     }
 }
