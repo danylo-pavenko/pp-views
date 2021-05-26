@@ -25,11 +25,7 @@ class PDSizeStorage private constructor(context: Context) {
         }
     }
 
-    private val sharedPrefs: SharedPreferences
-
-    init {
-        sharedPrefs = context.getSharedPreferences(NAME, Context.MODE_PRIVATE)
-    }
+    private val sharedPrefs: SharedPreferences = context.getSharedPreferences(NAME, Context.MODE_PRIVATE)
 
     private var screenHeight: Int
         get() = sharedPrefs.getInt(SCREEN_HEIGHT, 0)

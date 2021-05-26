@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
+import com.dansdev.app.BuildConfig
 
 /**
  * Call into onCreateView override method
@@ -36,6 +37,7 @@ fun Fragment.handleKeyboardStatus(listener: OnVisibilityKeyboardChange) {
         override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
             when (event) {
                 Lifecycle.Event.ON_DESTROY -> onDestroy(requireActivity(), viewGlobalListener)
+                else -> if (BuildConfig.DEBUG) Log.d(javaClass.simpleName, "Event lifecycle: $event")
             }
         }
     })

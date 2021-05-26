@@ -1,15 +1,11 @@
 package com.dansdev.app.util
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
-import android.content.pm.PackageManager
 import android.graphics.Point
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.os.Build
-import android.os.VibrationEffect
-import android.os.Vibrator
 import android.util.Size
 import android.view.View
 import android.view.ViewGroup
@@ -75,19 +71,6 @@ fun Activity.screenParamsNavigationBarHeight() =
 fun Activity.withNavigationBar() =
     resources.getBoolean(resources.getIdentifier("config_showNavigationBar", "bool", "android"))
 
-fun Activity.showRequestPermissionRationale(permission: String) =
-    !isPermissionGranted(permission) && shouldShowRequestPermissionRationale(permission)
-
-fun Activity.isPermissionGranted(permission: String): Boolean =
-    checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED
-
-fun Activity.isPermissionGranted(vararg permissions: String): Boolean {
-    permissions.forEach {
-        if (checkSelfPermission(it) != PackageManager.PERMISSION_GRANTED) return false
-    }
-    return true
-}
-
 fun Context.statusBarHeight(): Int {
     var result = 0
     val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
@@ -115,17 +98,6 @@ fun Context.navigationBarHeight(): Int {
     return if (resourceId > 0) {
         resources.getDimensionPixelSize(resourceId)
     } else 0
-}
-
-@SuppressLint("MissingPermission")
-fun Context.vibrate(){
-    val v = ContextCompat.getSystemService(this, Vibrator::class.java)
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        v?.vibrate(VibrationEffect.createOneShot(25, VibrationEffect.EFFECT_TICK))
-    } else {
-        @Suppress("DEPRECATION")
-        v?.vibrate(25)
-    }
 }
 
 fun Context.dpToPx(value: Int): Int = (value * resources.displayMetrics.density).toInt()

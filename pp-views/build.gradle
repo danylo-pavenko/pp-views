@@ -13,8 +13,8 @@ android {
     defaultConfig {
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
-        versionCode 12
-        versionName "1.0.15"
+        versionCode 13
+        versionName "2.0.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -48,5 +48,4 @@ dependencies {
     implementation deps.swiperefreshlayout
     implementation deps.autofittextview
     implementation deps.k4kotlin
-    implementation deps.lottie
 }

@@ -17,6 +17,11 @@ object PerfectDesignIniter {
         PDSizeStorage.init(application)
     }
 
+    /**
+     * At first start screen size is ZERO, so for activity not show sizes
+     *
+     * TODO: take screen sizes from WindowManager Service
+     */
     fun onStart(activity: Activity) {
         val oldParams = PDSizeStorage.instance.screenParams
         val params = ScreenParams(
