@@ -25,7 +25,7 @@ open class PDMaterialButton @JvmOverloads constructor(
     override var percentPaddingEnd: Int = 0
     override var percentPaddingTop: Int = 0
     override var percentPaddingBottom: Int = 0
-    override var percentTextSize: Float = 0f
+    override var percentTextSize: Float = textSize
 
     init {
         initSizes(isInEditMode, context, attrs)
