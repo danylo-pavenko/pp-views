@@ -1,17 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     apply from: 'versions.gradle'
-    ext {
-        kotlin_version = '1.4.10'
-    }
     addRepos(repositories)
     dependencies {
         classpath deps.android_gradle_plugin
         classpath deps.kotlin.plugin
-        classpath deps.navigation.safe_args_plugin
-
-        / JitPack /
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
     }
     repositories {
         google()

@@ -2,9 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'com.github.dcendents.android-maven'
-
-group='com.github.Daniil-Pavenko'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion build_versions.compile_sdk
@@ -13,8 +11,8 @@ android {
     defaultConfig {
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
-        versionCode 14
-        versionName "2.0.1"
+        versionCode 15
+        versionName "2.0.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -48,4 +46,18 @@ dependencies {
     implementation deps.swiperefreshlayout
     implementation deps.autofittextview
     implementation deps.k4kotlin
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.github.Daniil-Pavenko'
+                artifactId = 'pp-views'
+                version = '2.0.2'
+            }
+        }
+    }
 }
