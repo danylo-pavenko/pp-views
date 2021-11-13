@@ -6,11 +6,15 @@ import android.util.TypedValue
 import androidx.appcompat.widget.AppCompatEditText
 import com.dansdev.app.util.onAttachWindow
 
-open class PDEditText @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
-    defStyle: Int = 0
-) : AppCompatEditText(context, attrs, defStyle), IPerfectDesignView {
+open class PDEditText : AppCompatEditText, IPerfectDesignView {
+
+    constructor(context: Context): super(context)
+    constructor(context: Context, attrs: AttributeSet?): super(context, attrs) {
+        initSizes(isInEditMode, context, attrs)
+    }
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int): super(context, attrs, defStyle) {
+        initSizes(isInEditMode, context, attrs)
+    }
 
     override var percentMarginTop: Int = 0
     override var percentMarginBottom: Int = 0
@@ -25,7 +29,6 @@ open class PDEditText @JvmOverloads constructor(
     override var percentTextSize: Float = textSize
 
     init {
-        initSizes(isInEditMode, context, attrs)
         setTextSize(TypedValue.COMPLEX_UNIT_PX, percentTextSize)
     }
 

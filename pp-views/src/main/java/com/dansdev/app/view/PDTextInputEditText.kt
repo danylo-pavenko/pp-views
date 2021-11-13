@@ -8,16 +8,12 @@ import com.google.android.material.textfield.TextInputEditText
 
 open class PDTextInputEditText : TextInputEditText, IPerfectDesignView {
 
-    constructor(context: Context) : this(context, null)
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context): super(context)
+    constructor(context: Context, attrs: AttributeSet?): super(context, attrs) {
         initSizes(isInEditMode, context, attrs)
-        setTextSize(TypedValue.COMPLEX_UNIT_PX, percentTextSize)
     }
-
-    override fun onAttachedToWindow() {
-        super.onAttachedToWindow()
-        onAttachWindow(this)
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int): super(context, attrs, defStyle) {
+        initSizes(isInEditMode, context, attrs)
     }
 
     override var percentMarginTop: Int = 0
@@ -31,4 +27,13 @@ open class PDTextInputEditText : TextInputEditText, IPerfectDesignView {
     override var percentPaddingTop: Int = 0
     override var percentPaddingBottom: Int = 0
     override var percentTextSize: Float = textSize
+
+    init {
+        setTextSize(TypedValue.COMPLEX_UNIT_PX, percentTextSize)
+    }
+
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        onAttachWindow(this)
+    }
 }
